@@ -18,7 +18,7 @@ public class Db implements HasAfterInject{
   public final Map<String, List<String>> roleFuncMapping = new HashMap<>();
   public final Map<String, String> personRoleMapping = new HashMap<>();
   public final Map<String, ClientDot> clientStorage=new HashMap<>();
-  public final Map<String, DictionaryDot> dictionaryStorage=new HashMap<>();
+  public final Map<String, BooksDot> BooksStorage=new HashMap<>();
   public final Map<String, BooksDot> booksStorage=new HashMap<>();
 
   public final AtomicLong clientSeq=new AtomicLong(1);
@@ -110,19 +110,31 @@ public class Db implements HasAfterInject{
     booksStorage.put("Abay Joly",books);
 
 
-    DictionaryDot iphone = new DictionaryDot();
-    iphone.code="iphone";
-    iphone.title="IPhone X";
-    dictionaryStorage.put("iphone", iphone);
-    DictionaryDot samsung = new DictionaryDot();
-    samsung.code="samsung";
-    samsung.title="Samsung Galaxy S8";
-    dictionaryStorage.put("samsung",samsung);
+    BooksDot abay = new BooksDot();
+    abay.code="ABAY JOLY";
+    abay.title="ABAY JOLY";
+    BooksStorage.put("ABAY JOLY", abay);
+    BooksDot berdibek = new BooksDot();
+    berdibek.code="Menin atym koja";
+    berdibek.title="Menin atym koja";
+    BooksStorage.put("Menin atym koja",berdibek);
 
-    DictionaryDot Huawei = new DictionaryDot();
-    Huawei.code="Huawei";
-    Huawei.title="Huawei Test";
-    dictionaryStorage.put("Huawei",Huawei);
+    BooksDot drama = new BooksDot();
+    drama.code="Bandyny kugan hamit";
+    drama.title="Bandyny kugan hamit";
+    BooksStorage.put("Bandyny kugan hamit",drama);
+
+    BooksDot drama2 = new BooksDot();
+    drama2.code="Bandyny kugan hamit";
+    drama2.title="Bandyny kugan hamit";
+    BooksStorage.put("Bandyny kugan hamit",drama2);
+    BooksDot drama3 = new BooksDot();
+    drama3.code="Bandyny kugan hamit";
+    drama3.title="Bandyny kugan hamit";
+    BooksStorage.put("Bandyny kugan hamit",drama3);
+
+
+
 
   }
 }
