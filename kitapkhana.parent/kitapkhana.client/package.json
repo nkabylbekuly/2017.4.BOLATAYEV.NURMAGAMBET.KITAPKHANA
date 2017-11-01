@@ -1,6 +1,7 @@
+
 {
   "name": "kitapkhana",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "greetgo! help desk",
   "scripts": {
     "gulp": "gulp",
@@ -24,6 +25,7 @@
     "browser-sync": "2.18.8",
     "core-js": "2.4.1",
     "del": "2.2.2",
+    "foobar": "1.1.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-less": "3.3.0",
     "gulp-pug": "3.2.0",
@@ -35,5 +37,8 @@
     "typescript": "2.2.1",
     "webpack": "2.2.1",
     "zone.js": "0.8.4"
-  }
+  },
+  "main": "gulpfile.js",
+  "devDependencies": {},
+  "keywords": []
 }

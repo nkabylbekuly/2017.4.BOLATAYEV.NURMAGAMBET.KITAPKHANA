@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var OptionsBuilder = (function () {
     function OptionsBuilder() {
         this.appendingHeaders = [];
@@ -17,7 +18,7 @@ var OptionsBuilder = (function () {
     };
     Object.defineProperty(OptionsBuilder.prototype, "headers", {
         get: function () {
-            var ret = new Headers();
+            var ret = new http_1.Headers();
             this.appendingHeaders.forEach(function (h) { return ret.append(h.key, h.value); });
             return ret;
         },
@@ -51,6 +52,19 @@ var HttpService = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(HttpService.prototype, "personId", {
+        get: function () {
+            return sessionStorage.getItem("personId");
+        },
+        set: function (value) {
+            if (value)
+                sessionStorage.setItem("personId", value);
+            else
+                sessionStorage.removeItem("personId");
+        },
+        enumerable: true,
+        configurable: true
+    });
     HttpService.prototype.url = function (urlSuffix) {
         return this.prefix() + urlSuffix;
     };
@@ -76,6 +90,17 @@ var HttpService = (function () {
         if (this.token)
             ob.appendHeader('Token', this.token);
         return ob;
+    };
+    HttpService.prototype.post = function (urlSuffix, keyValue) {
+        var data = new URLSearchParams();
+        for (var key in keyValue) {
+            var value = keyValue[key];
+            if (value)
+                data.append(key, value);
+        }
+        var ob = this.newOptionsBuilder();
+        ob.appendHeader('Content-Type', 'application/x-www-form-urlencoded');
+        return this.http.post(this.url(urlSuffix), data.toString(), ob.get());
     };
     return HttpService;
 }());

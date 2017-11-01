@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {HttpService} from "../../service/HttpService";
-
 @Component({
     selector: 'admin-tab-set',
     template: `
